@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Montserrat:wght@300&family=Nuosu+SIL&family=Open+Sans:wght@700&family=Radio+Canada:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header"><a href="" class="head"><span class="corner">HONEST REVIEWS</span></a></header>
+    <main>
+        <div class="summ">
+            <h1><b>Latest Product Reviews</b></h1>
+            <div id="summ">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><span class="nextline">Corrupti earum quis autem ut voluptas officia.</span></p>
+            </div>
+        </div>
+    </main>
+    <!--<section>-->
+    <%for(let i = 0; i < products.length; i++) {%>
+        <%if(i%3 === 0) { %>
+            <section>
+        <%}%>
+            <div class="block">
+                <a href="<%= products[i].article%>">
+                    <img src="<%= products[i].image %>">
+                    <h4><%=products[i].date%></h4>
+                    <h3><%=products[i].product%></h3>
+                    <small><%=products[i].desc%></small>
+                </a>
+            </div>
+        <%if(i%3 === 0) { %>
+            </section>
+        <%}%>
+        
+        <!--<div class="block">
+            <img src="https://cdn.mos.cms.futurecdn.net/Vu4UZU3VKXXqNayCfiLchG.jpg" alt="">
+            <h4>September 4, 2022</h4>
+            <h3>iPhone 14</h3>
+            <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium incidunt nam odio, tenetur dolorum suscipit beatae voluptatem.</small>
+        </div>
+        <div class="block">
+            <img src="https://cdn.mos.cms.futurecdn.net/Vu4UZU3VKXXqNayCfiLchG.jpg" alt="">
+            <h4>September 4, 2022</h4>
+            <h3>iPhone 14</h3>
+            <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium incidunt nam odio, tenetur dolorum suscipit beatae voluptatem.</small>
+        </div>
+        <div class="block">
+            <img src="https://cdn.mos.cms.futurecdn.net/Vu4UZU3VKXXqNayCfiLchG.jpg" alt="">
+            <h4>September 4, 2022</h4>
+            <h3>iPhone 14</h3>
+            <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium incidunt nam odio, tenetur dolorum suscipit beatae voluptatem.</small>
+        </div>-->
+    <%}%>
+    <!--</section>-->
+    <div class="button">
+        <button class="add">Add Review</button>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
