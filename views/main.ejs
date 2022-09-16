@@ -7,6 +7,7 @@
     <title>Landing Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Montserrat:wght@300&family=Nuosu+SIL&family=Open+Sans:wght@700&family=Radio+Canada:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -21,6 +22,7 @@
         </div>
     </main>
     <!--<section>-->
+    <div>
     <%for(let i = 0; i < products.length; i++) {%>
         <%if(i%3 === 0) { %>
             <section>
@@ -33,7 +35,7 @@
                     <small><%=products[i].desc%></small>
                 </a>
             </div>
-        <%if(i%3 === 0) { %>
+        <%if( (i+1)%3 === 0) { %>
             </section>
         <%}%>
         
@@ -56,10 +58,12 @@
             <small>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium incidunt nam odio, tenetur dolorum suscipit beatae voluptatem.</small>
         </div>-->
     <%}%>
+    </div>
     <!--</section>-->
     <div class="button">
         <button class="add">Add Review</button>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

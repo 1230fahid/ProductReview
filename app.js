@@ -71,11 +71,19 @@ app.get('/', async (req, res) => {
 
 
 app.post('/', async (req, res) => {
-    const products = await Product.find({});
-    console.log("products is:\n", products)
-    res.render('main.ejs', {products}) // if request is '/' then render this file from the views directory we previously set. destructure products and add as argument.
+    console.log("req.body.item is\n", req.body.item)
+    const newproduct = new Product(req.body.item);
+    await newproduct.save();
+    //const products = await Product.find({});
+    //console.log("products is:\n", products)
+    //res.render('main.ejs', {products}) // if request is '/' then render this file from the views directory we previously set. destructure products and add as argument.
+    res.redirect('/');
 })
 
+
+app.use((req, res) => { //for sending back
+    res.send("Sorry request does not exist!");
+})
 
 app.listen(8080, () => {  //listen for connections and bind them
     console.log("Listening on port 8080")

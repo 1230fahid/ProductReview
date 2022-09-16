@@ -50,10 +50,29 @@ button.addEventListener('click', (e) => {
     button.remove(); //here when i rempve, the button still exists, but it's not a part of it's original parent element. It's not part of the HTML at all actually until either it gets reassigned to somewhere, or at the end when everything is destroyed.
     
     let form = document.createElement('form')
+    
+    //let buttons = document.createElement('div')
+    //buttons.display = "block"
+
     let newButton = document.createElement('button')
     newButton.innerText = "Submit"
     newButton.classList.add('button')
     newButton.style.width = "50%";
+
+    let closeButton = document.createElement('button')
+    closeButton.innerText = "Close"
+    closeButton.classList.add('button')
+    closeButton.style.width = "50%";
+    closeButton.type = "reset"
+    
+
+    //buttons.append(newButton);
+    //buttons.append(closeButton);
+
+    //buttons.display = "flex"
+    //buttons.flexDirection = "row"
+    //buttons.alignItems = "center"
+    
 
     form.classList.add('block');
     form.style.backgroundColor = 'beige';
@@ -68,7 +87,7 @@ button.addEventListener('click', (e) => {
     imageInput.id = "imageForm";
     imageLabel.innerText = "Image Link: "
     imageLabel.htmlFor = imageInput.id;
-    imageInput.name = "image";
+    imageInput.name = "item[image]";
     console.log('imageLabel is', imageLabel);
     imageInput.required = true;
     imageInput.style.width = "75%";
@@ -81,7 +100,7 @@ button.addEventListener('click', (e) => {
     dateInput.id = "dateForm";
     dateLabel.innerText = "Enter Date: "
     dateLabel.htmlFor = dateInput.id;
-    dateInput.name = "date";
+    dateInput.name = "item[date]";
     console.log('dateLabel is', dateLabel);
     dateInput.required = true;
     dateInput.style.width = "75%";
@@ -94,7 +113,7 @@ button.addEventListener('click', (e) => {
     prodInput.id = "prodForm";
     prodLabel.innerText = "Product Name: "
     prodLabel.htmlFor = prodInput.id;
-    prodInput.name = "prod";
+    prodInput.name = "item[product]";
     console.log('imageLabel is', imageLabel);
     prodInput.required = true;
     prodInput.style.width = "75%";
@@ -106,7 +125,7 @@ button.addEventListener('click', (e) => {
     textInput.id = "textForm";
     textLabel.innerText = "Small Summary: "
     textLabel.htmlFor = textInput.id;
-    textInput.name = "text";
+    textInput.name = "item[desc]";
     console.log('imageLabel is', imageLabel);
     textInput.style.width = "75%";
     textInput.rows = "4";
@@ -122,13 +141,14 @@ button.addEventListener('click', (e) => {
     linkInput.id = "linkForm";
     linkLabel.innerText = "Article Link: "
     linkLabel.htmlFor = linkInput.id;
-    linkInput.name = "link";
+    linkInput.name = "item[article]";
     console.log('linkLabel is', linkLabel);
     linkInput.style.width = "75%";
     linkInput.required = true;
     linkInput.style.marginBottom = "10px";
     
-    
+
+    form.method = "POST";
     form.append(imageLabel);
     form.append(imageInput);
     form.append(dateLabel);
@@ -140,16 +160,23 @@ button.addEventListener('click', (e) => {
     form.append(linkLabel);
     form.append(linkInput);
     form.append(newButton);
+    form.append(closeButton);
 
-    form.method = "POST";
+    closeButton.addEventListener('click', () => {
+        form.remove();
+        div.append(button);
+    })
 
-    form.addEventListener('submit', (e) => {
+    /*form.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log("image is", imageInput.value)
         console.log("date is", dateInput.value)
         console.log("product is", prodInput.value)
         console.log("text is", textInput.value)
         console.log("link is", linkInput.value)
+        
+        
+        
         let block = document.createElement('div');
         block.classList.add('block');
         //block.innerHTML = `<img src="${imageInput.value}" alt=""><h4>${dateInput.value}</h4><h3>${prodInput.value}</h3><small>${textInput.value}</small>`;
@@ -160,7 +187,7 @@ button.addEventListener('click', (e) => {
         let newh3 = document.createElement('h3');
         let newsmall = document.createElement('small');
 
-
+        new_a.href = linkInput.value;
         newimg.srcset = imageInput.value;
         newh4.innerText = dateInput.value;
         newh3.innerText = prodInput.value;
@@ -171,13 +198,13 @@ button.addEventListener('click', (e) => {
         new_a.append(newh3);
         new_a.append(newsmall);
         block.append(new_a);
-
+*/
 
         /*block.addEventListener('click', (e) => {
             e.preventDefault();
             window.location.href= `${linkInput.value}`;
         })*/
-        let lastsection = sections[sections.length - 1];
+        /*let lastsection = sections[sections.length - 1];
         let numberOfDivs = lastsection.getElementsByTagName('div').length
         let last = null
         //console.log('numberOfDivs is', numberOfDivs);
@@ -191,12 +218,12 @@ button.addEventListener('click', (e) => {
             newsection.append(block);
             last=newsection
             console.log("newsection is", newsection);
-        }
+        }*/
     
-        form.remove();
-        sections = document.querySelectorAll('section'); //here to update the amount of sections       
-        div.append(button);
-    })
+        //form.remove();
+        //sections = document.querySelectorAll('section'); //here to update the amount of sections       
+        //div.append(button);
+    //})
     
 
     parentDiv.append(form);

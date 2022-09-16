@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//(analogy for schema is a table in a relational database like MySQL)
+//Schema is a JSON object that defines the structure and contents of data we want
 const productSchema = new mongoose.Schema({ //create new schema
     image: {
         required: true,
@@ -24,6 +24,7 @@ const productSchema = new mongoose.Schema({ //create new schema
     }
 });
 
+//creates model with given schema constraints
 const Product = mongoose.model('Product', productSchema)
 
 module.exports = Product
